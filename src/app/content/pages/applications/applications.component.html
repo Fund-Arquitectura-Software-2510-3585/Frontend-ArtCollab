@@ -1,0 +1,17 @@
+<div class="application-title">
+  <div class="application-content">
+    <h1>  Mis <br>  <span class="cyan">Postulaciones</span></h1>
+    <p>Consulta el estado actualizado de todas tus postulaciones recientes a los proyectos de ArtCollab. Mantente informado sobre cada etapa del proceso de selección y sigue de cerca tu participación en las iniciativas creativas que más te apasionan.
+    </p>
+  </div>
+  <div class="application-container">
+    <app-application-card
+      *ngFor="let project of projects"
+      [title]="project.title"
+      [author]="project.author"
+      [dateApplication]="project.applicationDate"
+      [imageSrc]="project.imageSrc"
+      [id]="project.id">
+    </app-application-card>
+  </div>
+</div>

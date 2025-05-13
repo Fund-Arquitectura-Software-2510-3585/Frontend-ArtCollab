@@ -1,0 +1,33 @@
+.home-title{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  box-sizing: border-box;
+  width: 100%;
+
+  .cyan{
+    color: #429F95;
+  }
+
+  .home-content{
+    max-width: 1100px;
+    padding-bottom: 40px;
+    p{
+      text-align: center;
+      padding-top: 10px;
+    }
+  }
+
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 1100px;
+    width: 100%;
+    justify-content: center;
+    align-items: stretch;
+  }
+}
+

@@ -1,0 +1,39 @@
+<header class="toolbar">
+  <div class="toolbar-content">
+    <div class="logo">
+      <img src="https://raw.githubusercontent.com/diegooo01/HidraNet/refs/heads/main/public/brand-logo/art-collab-logo.png" alt="ArtCollab Logo" width="170" height="60" />
+    </div>
+
+    <nav class="nav-links" >
+      <a [routerLink]="['/home']" (click)="closeMenu()">Inicio</a>
+      <a [routerLink]="['/applications']" (click)="closeMenu()">Postulaciones</a>
+    </nav>
+
+    <div class="icons">
+      <button class="icon-button square" [routerLink]="['/messages']">
+        <span class="material-symbols-outlined">chat_bubble</span>
+      </button>
+      <button class="icon-button circle">
+        <span class="material-symbols-outlined">person</span>
+      </button>
+    </div>
+
+    <button class="burger square" (click)="toggleMenu()">
+      <span class="material-symbols-outlined">
+        {{ menuOpen ? 'close' : 'menu' }}
+      </span>
+    </button>
+  </div>
+
+  <div class="burger-menu" *ngIf="menuOpen">
+    <div class="icon-row">
+      <div class="burger-icon circle">
+        <span class="material-symbols-outlined">person</span>
+      </div>
+    </div>
+    <a [routerLink]="['/home']" (click)="closeMenu()">Inicio</a>
+    <a [routerLink]="['/applications']" (click)="closeMenu()">Postulaciones</a>
+    <a [routerLink]="['/messages']" (click)="closeMenu()">Mensajes</a>
+  </div>
+
+</header>
