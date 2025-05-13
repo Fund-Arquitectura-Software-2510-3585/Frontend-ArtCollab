@@ -15,7 +15,7 @@
         <span class="material-symbols-outlined">chat_bubble</span>
       </button>
       <button class="icon-button circle" (click)="logout()">
-        <span class="material-symbols-outlined">person</span>
+        <span class="material-symbols-outlined">exit_to_app</span>
       </button>
     </div>
 
@@ -29,7 +29,7 @@
   <div class="burger-menu" *ngIf="menuOpen">
     <div class="icon-row">
       <div class="burger-icon circle" (click)="logout()">
-        <span class="material-symbols-outlined">person</span>
+        <span class="material-symbols-outlined">exit_to_app</span>
       </div>
     </div>
     <a [routerLink]="['/home']" (click)="closeMenu()">Inicio</a>
