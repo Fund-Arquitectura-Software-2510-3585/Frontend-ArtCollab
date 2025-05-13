@@ -7,13 +7,14 @@
     <nav class="nav-links" >
       <a [routerLink]="['/home']" (click)="closeMenu()">Inicio</a>
       <a [routerLink]="['/applications']" (click)="closeMenu()">Postulaciones</a>
+      <a *ngIf="role === 2" [routerLink]="['/projects']" (click)="closeMenu()">Proyectos</a>
     </nav>
 
     <div class="icons">
       <button class="icon-button square" [routerLink]="['/messages']">
         <span class="material-symbols-outlined">chat_bubble</span>
       </button>
-      <button class="icon-button circle">
+      <button class="icon-button circle" (click)="logout()">
         <span class="material-symbols-outlined">person</span>
       </button>
     </div>
@@ -27,12 +28,13 @@
 
   <div class="burger-menu" *ngIf="menuOpen">
     <div class="icon-row">
-      <div class="burger-icon circle">
+      <div class="burger-icon circle" (click)="logout()">
         <span class="material-symbols-outlined">person</span>
       </div>
     </div>
     <a [routerLink]="['/home']" (click)="closeMenu()">Inicio</a>
     <a [routerLink]="['/applications']" (click)="closeMenu()">Postulaciones</a>
+    <a *ngIf="role === 2" [routerLink]="['/projects']" (click)="closeMenu()">Proyectos</a>
     <a [routerLink]="['/messages']" (click)="closeMenu()">Mensajes</a>
   </div>
 

@@ -1,0 +1,23 @@
+<div class="home-title">
+  <div class="home-content">
+    <h1>Mis <br><span class="cyan">Proyectos</span></h1>
+    <p>
+      Dale un vistazo a todos los últimos proyectos publicados por los escritores de ArtCollab! No te olvides de postular a los mejores proyectos disponibles que tenemos para ti.
+    </p>
+  </div>
+
+  <div class="cards-container">
+    <app-project-card-writer
+      *ngFor="let project of projects"
+      [id]="project.id"
+      [imageSrc]="project.imageSrc"
+      [date]="project.date"
+      [title]="project.title"
+      (viewMoreClicked)="goToProject($event)">
+    </app-project-card-writer>
+  </div>
+  <button class="floating-button" (click)="goToCreateProject()">
+    <span class="material-symbols-outlined">add</span>
+  </button>
+
+</div>

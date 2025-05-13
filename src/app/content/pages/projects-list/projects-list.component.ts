@@ -1,26 +1,22 @@
-import {Component, OnInit} from '@angular/core';
-import {ProjectCardComponent} from './components/project-card/project-card.component';
-import {NgForOf, NgIf} from '@angular/common';
+import { Component } from '@angular/core';
+import {NgForOf, NgIf} from "@angular/common";
+import {ProjectCardComponent} from "../home/components/project-card/project-card.component";
 import {Router} from '@angular/router';
+import {ProjectCardWriterComponent} from './components/project-card-writer/project-card-writer.component';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-projects-list',
   standalone: true,
   imports: [
-    ProjectCardComponent,
     NgForOf,
-    NgIf
+    NgIf,
+    ProjectCardComponent,
+    ProjectCardWriterComponent
   ],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  templateUrl: './projects-list.component.html',
+  styleUrl: './projects-list.component.css'
 })
-export class HomeComponent  implements OnInit {
-
-  user = {
-    name: 'Andres Valle',
-    role: ''
-  };
-
+export class ProjectsListComponent {
   projects = [
     {
       id: 1,
@@ -52,17 +48,14 @@ export class HomeComponent  implements OnInit {
   ];
 
 
-
-
   constructor(private router: Router) {}
-
-  ngOnInit() {
-    const role = localStorage.getItem('role');
-
-    this.user.role = role === '1' ? 'Ilustrador' : role === '2' ? 'Escritor' : 'Invitado';
-  }
 
   goToProject(id: number) {
     this.router.navigate(['/projects/information', id]);
   }
+
+  goToCreateProject() {
+    this.router.navigate(['/projects/create-new-project']);
+  }
+
 }

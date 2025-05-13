@@ -12,14 +12,28 @@ import {NgForOf} from '@angular/common';
 })
 export class ChatsComponent {
   users = [
-    { name: 'Diego Criollo' },
-    { name: 'Paulo Rivera' },
-    { name: 'Andres Zuta' }
+    {
+      id: 1,
+      name: 'María López',
+    },
+    {
+      id: 2,
+      name: 'Carlos Pérez',
+    },
+    {
+      id: 3,
+      name: 'Lucía Fernández',
+    }
   ];
 
-  selectedUser = this.users[0]; // Selecciona por defecto el primero
+  selectedUserId = this.users[0].id; // Selecciona por defecto el primero
 
-  selectUser(user: { name: string }) {
-    this.selectedUser = user;
+  get selectedUser() {
+    return this.users.find(user => user.id === this.selectedUserId);
   }
+
+  selectUser(userId: number) {
+    this.selectedUserId = userId;
+  }
+
 }

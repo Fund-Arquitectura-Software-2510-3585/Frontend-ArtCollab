@@ -1,9 +1,16 @@
 <div class="home-title">
   <div class="home-content">
-    <h1>Hola <span class="cyan">{{ user.name }}</span>!  <br> Bienvenido, <span class="cyan">{{ user.role }}</span></h1>
-    <p>Dale un vistazo a todos los últimos proyectos publicados por los escritores de ArtCollab! No te olvides de postular a los mejores proyectos disponibles que tenemos para ti.</p>
+    <h1>Hola <span class="cyan">{{ user.name }}</span>!<br>Bienvenido, <span class="cyan">{{ user.role }}</span></h1>
+
+    <p *ngIf="user.role !== 'Escritor'">
+      Dale un vistazo a todos los últimos proyectos publicados por los escritores de ArtCollab! No te olvides de postular a los mejores proyectos disponibles que tenemos para ti.
+    </p>
+
+    <p *ngIf="user.role === 'Escritor'">
+      ¡Muy pronto podrás explorar todas las ilustraciones y portafolios creados por nuestros más talentosos ilustradores! Prepárate para dejarte inspirar por su creatividad y estilo único.    </p>
   </div>
-  <div class="cards-container">
+
+  <div class="cards-container" *ngIf="user.role !== 'Escritor'">
     <app-project-card
       *ngFor="let project of projects"
       [id]="project.id"
@@ -12,7 +19,6 @@
       [date]="project.date"
       [title]="project.title"
       (viewMoreClicked)="goToProject($event)">
-      >
     </app-project-card>
   </div>
 </div>

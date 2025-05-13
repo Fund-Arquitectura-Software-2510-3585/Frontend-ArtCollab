@@ -1,17 +1,36 @@
 <div class="application-title">
   <div class="application-content">
-    <h1>  Mis <br>  <span class="cyan">Postulaciones</span></h1>
-    <p>Consulta el estado actualizado de todas tus postulaciones recientes a los proyectos de ArtCollab. Mantente informado sobre cada etapa del proceso de selección y sigue de cerca tu participación en las iniciativas creativas que más te apasionan.
+    <h1 *ngIf="role === 'Escritor'">Postulaciones <br><span class="cyan">Recibidas</span></h1>
+    <h1 *ngIf="role === 'Ilustrador'">Mis <br><span class="cyan">Postulaciones</span></h1>
+
+    <p *ngIf="role === 'Escritor'">
+      Aquí puedes revisar todas las postulaciones recibidas en tus proyectos publicados. Mantente al tanto del interés que generan tus propuestas creativas.
     </p>
+    <p *ngIf="role === 'Ilustrador'">
+      Visauliza todas las postulaciones que has realizado a los mejores proyectos de ArtCollab. ¡Estate atento a las novedades!
+    </p>
+
   </div>
-  <div class="application-container">
-    <app-application-card
+
+  <div class="application-container" *ngIf="role === 'Ilustrador'">
+  <app-application-card
+    *ngFor="let project of projects"
+    [title]="project.title"
+    [author]="project.author"
+    [dateApplication]="project.applicationDate"
+    [imageSrc]="project.imageSrc"
+    [id]="project.id">
+  </app-application-card>
+  </div>
+  <div class="application-container" *ngIf="role === 'Escritor'">
+    <app-application-card-received
       *ngFor="let project of projects"
       [title]="project.title"
       [author]="project.author"
       [dateApplication]="project.applicationDate"
       [imageSrc]="project.imageSrc"
       [id]="project.id">
-    </app-application-card>
+    </app-application-card-received>
   </div>
+
 </div>
