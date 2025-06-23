@@ -7,6 +7,10 @@ import {ApplicationsComponent} from './content/pages/applications/applications.c
 import {ProjectsComponent} from './content/pages/projects/projects.component';
 import {ProjectsListComponent} from './content/pages/projects-list/projects-list.component';
 import {CreateProjectComponent} from './content/pages/create-project/create-project.component';
+import {PortfoliosListComponent} from './content/pages/portfolios-list/portfolios-list.component';
+import {CreatePortfolioComponent} from './content/pages/create-portfolio/create-portfolio.component';
+import {PortfoliosComponent} from './content/pages/portfolios/portfolios.component';
+import {CreateIlustrationComponent} from './content/pages/portfolios/create-ilustration/create-ilustration.component';
 
 export const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -17,6 +21,10 @@ export const routes: Routes = [
   { path: 'projects/create-new-project', component: CreateProjectComponent },
   { path: 'projects/information/:id', component: ProjectsComponent },
   { path: 'applications', component: ApplicationsComponent },
+  { path: 'portfolios', component: PortfoliosListComponent },
+  { path: 'portfolios/create-new-portfolio', component: CreatePortfolioComponent },
+  { path: 'portfolios/information/:id', component: PortfoliosComponent },
+  { path: 'portfolios/information/:id/create-new-illustration', component: CreateIlustrationComponent },
   { path: '', pathMatch: 'full', redirectTo: 'login' },
   { path: '**', pathMatch: 'full', redirectTo: 'login' }
 ];

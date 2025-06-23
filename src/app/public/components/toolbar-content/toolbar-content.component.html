@@ -8,6 +8,7 @@
       <a [routerLink]="['/home']" (click)="closeMenu()">Inicio</a>
       <a [routerLink]="['/applications']" (click)="closeMenu()">Postulaciones</a>
       <a *ngIf="role === 2" [routerLink]="['/projects']" (click)="closeMenu()">Proyectos</a>
+      <a *ngIf="role === 2" [routerLink]="['/portfolios']" (click)="closeMenu()">Portafolios</a>
     </nav>
 
     <div class="icons">
@@ -35,6 +36,7 @@
     <a [routerLink]="['/home']" (click)="closeMenu()">Inicio</a>
     <a [routerLink]="['/applications']" (click)="closeMenu()">Postulaciones</a>
     <a *ngIf="role === 2" [routerLink]="['/projects']" (click)="closeMenu()">Proyectos</a>
+    <a *ngIf="role === 2" [routerLink]="['/portfolios']" (click)="closeMenu()">Portafolios</a>
     <a [routerLink]="['/messages']" (click)="closeMenu()">Mensajes</a>
   </div>
 

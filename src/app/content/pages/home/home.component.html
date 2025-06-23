@@ -21,4 +21,16 @@
       (viewMoreClicked)="goToProject($event)">
     </app-project-card>
   </div>
+
+  <div class="cards-container" *ngIf="user.role !== 'Ilustrador'">
+    <app-portfolio-card
+      *ngFor="let portfolio of portfolios"
+      [id]="portfolio.id"
+      [imageSrc]="portfolio.imageSrc"
+      [author]="portfolio.author"
+      [date]="portfolio.date"
+      [title]="portfolio.title"
+      (viewMoreClicked)="goToProject($event)">
+    </app-portfolio-card>
+  </div>
 </div>
