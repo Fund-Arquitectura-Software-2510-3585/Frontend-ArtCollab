@@ -9,8 +9,6 @@ import {ProjectCardWriterComponent} from './components/project-card-writer/proje
   standalone: true,
   imports: [
     NgForOf,
-    NgIf,
-    ProjectCardComponent,
     ProjectCardWriterComponent
   ],
   templateUrl: './projects-list.component.html',

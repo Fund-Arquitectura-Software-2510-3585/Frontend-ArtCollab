@@ -1,12 +1,11 @@
 import { Component, HostListener, Input, ChangeDetectorRef } from '@angular/core';
 import {NgIf, NgOptimizedImage} from '@angular/common';
-import {Router, RouterLink} from '@angular/router';
+import {NavigationEnd, Router, RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-toolbar-content',
   standalone: true,
   imports: [
-    NgOptimizedImage,
     NgIf,
     RouterLink
   ],
@@ -15,27 +14,14 @@ import {Router, RouterLink} from '@angular/router';
 })
 export class ToolbarContentComponent {
 
-  @Input() role: number = 0;
-
   menuOpen = false;
 
-  constructor(private router: Router, private cdr: ChangeDetectorRef) {}
-
-  logout(): void {
-    document.body.style.pointerEvents = 'none';
-
-    setTimeout(() => {
-      localStorage.removeItem('role');
-
-      location.reload();
-
-      setTimeout(() => {
-        this.router.navigate(['/login']);
-      }, 50);
-    }, 100);
+  constructor(private router: Router, private cdr: ChangeDetectorRef) {
   }
 
-
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 
   toggleMenu() {
     this.menuOpen = !this.menuOpen;

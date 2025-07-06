@@ -1,36 +1,61 @@
 <div class="home-title">
   <div class="home-content">
-    <h1>Hola <span class="cyan">{{ user.name }}</span>!<br>Bienvenido, <span class="cyan">{{ user.role }}</span></h1>
+    <!--Aqui se cambiaria segun el rol: Ilustrador verá Proyectos:Libros:Perfiles de Escritor/ Escritor verá Ilustraciones:Portafolios:Perfiles de Ilustrador-->
+    <!--Haré el ejemplo con vista de Ilustrador, es decir verá Escritores-->
+    <h1>Hola <span class="cyan">{{ user.name }}</span>! Dale un vistazo a los <span class="cyan">proyectos más recientes... </span> </h1>
+    <hr>
+    <div class="cards-container">
+      <app-project-card
+        *ngFor="let project of projects"
+        [id]="project.id"
+        [imageSrc]="project.imageSrc"
+        [author]="project.author"
+        [title]="project.title"
+      ></app-project-card>
+      <!-- Esto es lo que verá el escritor, verá portafolios
+      <app-portfolio-card
+        *ngFor="let project of projects"
+        [id]="project.id"
+        [imageSrc]="project.imageSrc"
+        [author]="project.author"
+        [title]="project.title"
+      ></app-portfolio-card>
+      -->
+    </div>
+    <div class="view-more-container">
+      <button class="view-more-btn" (click)="goToAllProjects()">Ver más</button>
+    </div>
 
-    <p *ngIf="user.role !== 'Escritor'">
-      Dale un vistazo a todos los últimos proyectos publicados por los escritores de ArtCollab! No te olvides de postular a los mejores proyectos disponibles que tenemos para ti.
-    </p>
+    <!--Esto sería variable también-->
+    <h1>Conoce a los escritores <span class="cyan">más famosos</span> de la plataforma</h1>
+    <hr>
+    <div class="famous-container">
+      <app-writer-card
+        *ngFor="let writer of writers"
+        [id]="writer.id"
+        [author]="writer.author"
+        [photo]="writer.photo"
+        [suscription]="writer.suscription"
+      ></app-writer-card>
+    </div>
+    <div class="view-more-container">
+      <button class="view-more-btn" (click)="goToAllWriters()">Ver más</button>
+    </div>
 
-    <p *ngIf="user.role === 'Escritor'">
-      ¡Muy pronto podrás explorar todas las ilustraciones y portafolios creados por nuestros más talentosos ilustradores! Prepárate para dejarte inspirar por su creatividad y estilo único.    </p>
-  </div>
-
-  <div class="cards-container" *ngIf="user.role !== 'Escritor'">
-    <app-project-card
-      *ngFor="let project of projects"
-      [id]="project.id"
-      [imageSrc]="project.imageSrc"
-      [author]="project.author"
-      [date]="project.date"
-      [title]="project.title"
-      (viewMoreClicked)="goToProject($event)">
-    </app-project-card>
-  </div>
-
-  <div class="cards-container" *ngIf="user.role !== 'Ilustrador'">
-    <app-portfolio-card
-      *ngFor="let portfolio of portfolios"
-      [id]="portfolio.id"
-      [imageSrc]="portfolio.imageSrc"
-      [author]="portfolio.author"
-      [date]="portfolio.date"
-      [title]="portfolio.title"
-      (viewMoreClicked)="goToProject($event)">
-    </app-portfolio-card>
+    <!--Esto sería variable también-->
+    <h1>Echa un vistazo a sus obras <span class="cyan">más destacadas</span></h1>
+    <hr>
+    <div class="important-container">
+      <app-book-card
+        *ngFor="let book of books"
+        [id]="book.id"
+        [title]="book.title"
+        [author]="book.author"
+        [image]="book.image"
+      ></app-book-card>
+    </div>
+    <div class="view-more-container">
+      <button class="view-more-btn" (click)="goToAllBooks()">Ver más</button>
+    </div>
   </div>
 </div>

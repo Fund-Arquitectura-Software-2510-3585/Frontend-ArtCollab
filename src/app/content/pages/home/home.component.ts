@@ -3,6 +3,9 @@ import {ProjectCardComponent} from './components/project-card/project-card.compo
 import {NgForOf, NgIf} from '@angular/common';
 import {Router} from '@angular/router';
 import {PortfolioCardComponent} from './components/portfolio-card/portfolio-card.component';
+import {WriterCardComponent} from './components/writer-card/writer-card.component';
+import {BookCardComponent} from './components/book-card/book-card.component';
+import {IllustrationProfileComponent} from '../profile/illustration-profile/illustration-profile.component';
 
 @Component({
   selector: 'app-home',
@@ -10,13 +13,14 @@ import {PortfolioCardComponent} from './components/portfolio-card/portfolio-card
   imports: [
     ProjectCardComponent,
     NgForOf,
-    NgIf,
-    PortfolioCardComponent
+    WriterCardComponent,
+    BookCardComponent,
+    PortfolioCardComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent  implements OnInit {
+export class HomeComponent{
 
   user = {
     name: 'Andres Valle',
@@ -44,6 +48,60 @@ export class HomeComponent  implements OnInit {
     },
     {
       id: 3,
+      title: 'Historias de Inclusión y Diversidad',
+      author: 'Lucía Fernández',
+      date: '12/05/2025',
+      applicationDate: '12/05/2025',
+      imageSrc: 'https://static.vecteezy.com/system/resources/previews/023/967/493/large_2x/world-day-for-cultural-diversity-for-dialogue-and-development-abstract-illustration-generative-ai-photo.jpg',
+      description: 'Este proyecto tiene como objetivo desarrollar cuentos ilustrados que promuevan la inclusión y el respeto por las diferencias. A través de relatos protagonizados por niños y niñas de diferentes culturas, capacidades y contextos, se busca construir una visión más abierta y comprensiva del mundo. El enfoque será pedagógico y emocional, incorporando actividades complementarias para padres y educadores.'
+    },
+    {
+      id: 4,
+      title: 'Historias de Inclusión y Diversidad',
+      author: 'Lucía Fernández',
+      date: '12/05/2025',
+      applicationDate: '12/05/2025',
+      imageSrc: 'https://static.vecteezy.com/system/resources/previews/023/967/493/large_2x/world-day-for-cultural-diversity-for-dialogue-and-development-abstract-illustration-generative-ai-photo.jpg',
+      description: 'Este proyecto tiene como objetivo desarrollar cuentos ilustrados que promuevan la inclusión y el respeto por las diferencias. A través de relatos protagonizados por niños y niñas de diferentes culturas, capacidades y contextos, se busca construir una visión más abierta y comprensiva del mundo. El enfoque será pedagógico y emocional, incorporando actividades complementarias para padres y educadores.'
+    },
+    {
+      id: 5,
+      title: 'Historias de Inclusión y Diversidad',
+      author: 'Lucía Fernández',
+      date: '12/05/2025',
+      applicationDate: '12/05/2025',
+      imageSrc: 'https://static.vecteezy.com/system/resources/previews/023/967/493/large_2x/world-day-for-cultural-diversity-for-dialogue-and-development-abstract-illustration-generative-ai-photo.jpg',
+      description: 'Este proyecto tiene como objetivo desarrollar cuentos ilustrados que promuevan la inclusión y el respeto por las diferencias. A través de relatos protagonizados por niños y niñas de diferentes culturas, capacidades y contextos, se busca construir una visión más abierta y comprensiva del mundo. El enfoque será pedagógico y emocional, incorporando actividades complementarias para padres y educadores.'
+    },
+    {
+      id: 6,
+      title: 'Historias de Inclusión y Diversidad',
+      author: 'Lucía Fernández',
+      date: '12/05/2025',
+      applicationDate: '12/05/2025',
+      imageSrc: 'https://static.vecteezy.com/system/resources/previews/023/967/493/large_2x/world-day-for-cultural-diversity-for-dialogue-and-development-abstract-illustration-generative-ai-photo.jpg',
+      description: 'Este proyecto tiene como objetivo desarrollar cuentos ilustrados que promuevan la inclusión y el respeto por las diferencias. A través de relatos protagonizados por niños y niñas de diferentes culturas, capacidades y contextos, se busca construir una visión más abierta y comprensiva del mundo. El enfoque será pedagógico y emocional, incorporando actividades complementarias para padres y educadores.'
+    },
+    {
+      id: 7,
+      title: 'Historias de Inclusión y Diversidad',
+      author: 'Lucía Fernández',
+      date: '12/05/2025',
+      applicationDate: '12/05/2025',
+      imageSrc: 'https://static.vecteezy.com/system/resources/previews/023/967/493/large_2x/world-day-for-cultural-diversity-for-dialogue-and-development-abstract-illustration-generative-ai-photo.jpg',
+      description: 'Este proyecto tiene como objetivo desarrollar cuentos ilustrados que promuevan la inclusión y el respeto por las diferencias. A través de relatos protagonizados por niños y niñas de diferentes culturas, capacidades y contextos, se busca construir una visión más abierta y comprensiva del mundo. El enfoque será pedagógico y emocional, incorporando actividades complementarias para padres y educadores.'
+    },
+    {
+      id: 8,
+      title: 'Historias de Inclusión y Diversidad',
+      author: 'Lucía Fernández',
+      date: '12/05/2025',
+      applicationDate: '12/05/2025',
+      imageSrc: 'https://static.vecteezy.com/system/resources/previews/023/967/493/large_2x/world-day-for-cultural-diversity-for-dialogue-and-development-abstract-illustration-generative-ai-photo.jpg',
+      description: 'Este proyecto tiene como objetivo desarrollar cuentos ilustrados que promuevan la inclusión y el respeto por las diferencias. A través de relatos protagonizados por niños y niñas de diferentes culturas, capacidades y contextos, se busca construir una visión más abierta y comprensiva del mundo. El enfoque será pedagógico y emocional, incorporando actividades complementarias para padres y educadores.'
+    },
+    {
+      id: 9,
       title: 'Historias de Inclusión y Diversidad',
       author: 'Lucía Fernández',
       date: '12/05/2025',
@@ -84,16 +142,128 @@ export class HomeComponent  implements OnInit {
     }
   ];
 
+  writers = [
+    {
+      id: 1,
+      author: 'Diego Criollo',
+      photo: 'https://media.licdn.com/dms/image/v2/D4D03AQEHAFaD7lk0_g/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1722623220508?e=2147483647&v=beta&t=CNNYILifUGwe1U2GtBtJhFanyEiaeJoCYILAWfwmupo',
+      suscription: 2
+    },
+    {
+      id: 2,
+      author: 'Blaba',
+      photo: 'https://media.licdn.com/dms/image/v2/D4D03AQEHAFaD7lk0_g/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1722623220508?e=2147483647&v=beta&t=CNNYILifUGwe1U2GtBtJhFanyEiaeJoCYILAWfwmupo',
+      suscription: 0
+    },
+    {
+      id: 3,
+      author: 'Blaba',
+      photo: 'https://media.licdn.com/dms/image/v2/D4D03AQEHAFaD7lk0_g/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1722623220508?e=2147483647&v=beta&t=CNNYILifUGwe1U2GtBtJhFanyEiaeJoCYILAWfwmupo',
+      suscription: 0
+    },
+    {
+      id: 4,
+      author: 'Diego Criollo',
+      photo: 'https://media.licdn.com/dms/image/v2/D4D03AQEHAFaD7lk0_g/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1722623220508?e=2147483647&v=beta&t=CNNYILifUGwe1U2GtBtJhFanyEiaeJoCYILAWfwmupo',
+      suscription: 2
+    },
+    {
+      id: 5,
+      author: 'Blaba',
+      photo: 'https://media.licdn.com/dms/image/v2/D4D03AQEHAFaD7lk0_g/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1722623220508?e=2147483647&v=beta&t=CNNYILifUGwe1U2GtBtJhFanyEiaeJoCYILAWfwmupo',
+      suscription: 0
+    },
+    {
+      id: 6,
+      author: 'Blaba',
+      photo: 'https://media.licdn.com/dms/image/v2/D4D03AQEHAFaD7lk0_g/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1722623220508?e=2147483647&v=beta&t=CNNYILifUGwe1U2GtBtJhFanyEiaeJoCYILAWfwmupo',
+      suscription: 0
+    },
+    {
+      id: 7,
+      author: 'Diego Criollo',
+      photo: 'https://media.licdn.com/dms/image/v2/D4D03AQEHAFaD7lk0_g/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1722623220508?e=2147483647&v=beta&t=CNNYILifUGwe1U2GtBtJhFanyEiaeJoCYILAWfwmupo',
+      suscription: 2
+    },
+    {
+      id: 8,
+      author: 'Blaba',
+      photo: 'https://media.licdn.com/dms/image/v2/D4D03AQEHAFaD7lk0_g/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1722623220508?e=2147483647&v=beta&t=CNNYILifUGwe1U2GtBtJhFanyEiaeJoCYILAWfwmupo',
+      suscription: 0
+    },
+    {
+      id: 9,
+      author: 'Blaba',
+      photo: 'https://media.licdn.com/dms/image/v2/D4D03AQEHAFaD7lk0_g/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1722623220508?e=2147483647&v=beta&t=CNNYILifUGwe1U2GtBtJhFanyEiaeJoCYILAWfwmupo',
+      suscription: 0
+    },
+  ];
+  books = [
+    {
+      id: 1,
+      title: 'El Señor de Los Anillos',
+      author: 'Diego Criollo',
+      image: 'https://es.web.img2.acsta.net/c_310_420/medias/nmedia/18/89/67/45/20061512.jpg'
+    },
+    {
+      id: 2,
+      title: 'El Señor de Los Anillos',
+      author: 'Diego Criollo',
+      image: 'https://es.web.img2.acsta.net/c_310_420/medias/nmedia/18/89/67/45/20061512.jpg'
+    },
+    {
+      id: 3,
+      title: 'El Señor de Los Anillos',
+      author: 'Diego Criollo',
+      image: 'https://es.web.img2.acsta.net/c_310_420/medias/nmedia/18/89/67/45/20061512.jpg'
+    },
+    {
+      id: 4,
+      title: 'El Señor de Los Anillos',
+      author: 'Diego Criollo',
+      image: 'https://es.web.img2.acsta.net/c_310_420/medias/nmedia/18/89/67/45/20061512.jpg'
+    },
+    {
+      id: 5,
+      title: 'El Señor de Los Anillos',
+      author: 'Diego Criollo',
+      image: 'https://es.web.img2.acsta.net/c_310_420/medias/nmedia/18/89/67/45/20061512.jpg'
+    },
+    {
+      id: 6,
+      title: 'El Señor de Los Anillos',
+      author: 'Diego Criollo',
+      image: 'https://es.web.img2.acsta.net/c_310_420/medias/nmedia/18/89/67/45/20061512.jpg'
+    },
+    {
+      id: 7,
+      title: 'El Señor de Los Anillos',
+      author: 'Diego Criollo',
+      image: 'https://es.web.img2.acsta.net/c_310_420/medias/nmedia/18/89/67/45/20061512.jpg'
+    },
+    {
+      id: 8,
+      title: 'El Señor de Los Anillos',
+      author: 'Diego Criollo',
+      image: 'https://es.web.img2.acsta.net/c_310_420/medias/nmedia/18/89/67/45/20061512.jpg'
+    },
+  ];
 
   constructor(private router: Router) {}
 
-  ngOnInit() {
-    const role = localStorage.getItem('role');
-
-    this.user.role = role === '1' ? 'Ilustrador' : role === '2' ? 'Escritor' : 'Invitado';
-  }
-
   goToProject(id: number) {
     this.router.navigate(['/projects/information', id]);
+  }
+
+  goToAllProjects() {
+    this.router.navigate(['/all-projects']);
+  }
+
+  goToAllWriters() {
+    this.router.navigate(['/all-writers']);
+  }
+
+  goToAllBooks() {
+    this.router.navigate(['/all-books']);
   }
 }

@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-project-card',
@@ -11,12 +12,11 @@ export class ProjectCardComponent {
   @Input() id!: number;
   @Input() imageSrc: string = '';
   @Input() author: string = '';
-  @Input() date: string = '';
   @Input() title: string = '';
 
-  @Output() viewMoreClicked = new EventEmitter<number>();
+  constructor(private router: Router) {}
 
-  viewMore() {
-    this.viewMoreClicked.emit(this.id);
+  goToProject() {
+    this.router.navigate(['/information/project', this.id]);
   }
 }

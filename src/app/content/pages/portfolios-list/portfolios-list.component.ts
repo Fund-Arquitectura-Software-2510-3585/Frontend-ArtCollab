@@ -11,8 +11,6 @@ import {
   standalone: true,
   imports: [
     NgForOf,
-    NgIf,
-    PortfolioCardComponent,
     PortfolioCardWriterComponent
   ],
   templateUrl: './portfolios-list.component.html',

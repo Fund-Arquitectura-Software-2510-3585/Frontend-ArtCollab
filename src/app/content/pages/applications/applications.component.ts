@@ -11,7 +11,6 @@ import {
   standalone: true,
   imports: [
     NgForOf,
-    ProjectCardComponent,
     ApplicationCardComponent,
     NgIf,
     ApplicationCardReceivedComponent

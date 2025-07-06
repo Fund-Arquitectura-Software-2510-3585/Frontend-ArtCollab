@@ -1,22 +1,25 @@
 <header class="toolbar">
   <div class="toolbar-content">
     <div class="logo">
-      <img src="https://raw.githubusercontent.com/diegooo01/HidraNet/refs/heads/main/public/brand-logo/art-collab-logo.png" alt="ArtCollab Logo" width="170" height="60" />
+      <a [routerLink]="['/home']" (click)="closeMenu(); scrollToTop()">
+        <img src="https://raw.githubusercontent.com/diegooo01/HidraNet/refs/heads/main/public/brand-logo/art-collab-logo.png" alt="ArtCollab Logo" width="170" height="60" />
+      </a>
     </div>
 
+
     <nav class="nav-links" >
-      <a [routerLink]="['/home']" (click)="closeMenu()">Inicio</a>
-      <a [routerLink]="['/applications']" (click)="closeMenu()">Postulaciones</a>
-      <a *ngIf="role === 2" [routerLink]="['/projects']" (click)="closeMenu()">Proyectos</a>
-      <a *ngIf="role === 2" [routerLink]="['/portfolios']" (click)="closeMenu()">Portafolios</a>
+      <a [routerLink]="['/home']" (click)="closeMenu(); scrollToTop()">Inicio</a>
+      <a [routerLink]="['/applications']" (click)="closeMenu(); scrollToTop()">Postulaciones</a>
+      <a [routerLink]="['/projects']" (click)="closeMenu(); scrollToTop()">Proyectos</a>
+      <a [routerLink]="['/portfolios']" (click)="closeMenu(); scrollToTop()">Portafolios</a>
     </nav>
 
     <div class="icons">
-      <button class="icon-button square" [routerLink]="['/messages']">
+      <button class="icon-button square" [routerLink]="['/messages']" (click)="scrollToTop()">
         <span class="material-symbols-outlined">chat_bubble</span>
       </button>
-      <button class="icon-button circle" (click)="logout()">
-        <span class="material-symbols-outlined">exit_to_app</span>
+      <button class="icon-button circle" [routerLink]="['/profile']" (click)="closeMenu(); scrollToTop()">
+        <span class="material-symbols-outlined">person</span>
       </button>
     </div>
 
@@ -29,15 +32,15 @@
 
   <div class="burger-menu" *ngIf="menuOpen">
     <div class="icon-row">
-      <div class="burger-icon circle" (click)="logout()">
-        <span class="material-symbols-outlined">exit_to_app</span>
-      </div>
+      <a class="burger-icon circle" [routerLink]="['/profile']" (click)="closeMenu(); scrollToTop()">
+        <span class="material-symbols-outlined">person</span>
+      </a>
     </div>
-    <a [routerLink]="['/home']" (click)="closeMenu()">Inicio</a>
-    <a [routerLink]="['/applications']" (click)="closeMenu()">Postulaciones</a>
-    <a *ngIf="role === 2" [routerLink]="['/projects']" (click)="closeMenu()">Proyectos</a>
-    <a *ngIf="role === 2" [routerLink]="['/portfolios']" (click)="closeMenu()">Portafolios</a>
-    <a [routerLink]="['/messages']" (click)="closeMenu()">Mensajes</a>
+    <a [routerLink]="['/home']" (click)="closeMenu(); scrollToTop()">Inicio</a>
+    <a [routerLink]="['/applications']" (click)="closeMenu(); scrollToTop()">Postulaciones</a>
+    <a [routerLink]="['/projects']" (click)="closeMenu(); scrollToTop()">Proyectos</a>
+    <a [routerLink]="['/portfolios']" (click)="closeMenu(); scrollToTop()">Portafolios</a>
+    <a [routerLink]="['/messages']" (click)="closeMenu(); scrollToTop()">Mensajes</a>
   </div>
 
 </header>

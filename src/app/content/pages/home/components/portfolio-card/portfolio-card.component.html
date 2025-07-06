@@ -1,19 +1,17 @@
-<div class="card">
+<div class="portfolio-card" (click)="goToPortfolio()">
   <div class="image-wrapper">
-    <img [src]="imageSrc" alt="Portfolio image" />
+    <img [src]="imageSrc" alt="Project image" />
   </div>
   <div class="info">
     <div class="author-date">
-      <div class="author-icon">
-        <button class="icon-button circle">
-          <span class="material-symbols-outlined">person</span>
-        </button>
-        <span class="author">{{ author }}</span>
-      </div>
-      <span class="date">{{ date }}</span>
+      <h2 class="title">{{ title }}</h2>
     </div>
-    <h2 class="title">{{ title }}</h2>
+    <div class="author-icon">
+      <button class="icon-button circle">
+        <span class="material-symbols-outlined">person</span>
+      </button>
+      <span class="author">{{ author }}</span>
+    </div>
     <div class="spacer"></div>
-    <button class="view-more" (click)="viewMore()">Ver más</button>
   </div>
 </div>
