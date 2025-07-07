@@ -12,7 +12,7 @@
         [author]="project.author"
         [title]="project.title"
       ></app-project-card>
-      <!-- Esto es lo que verá el escritor, verá portafolios
+      <!-- Esto es lo que verá el Escritor, verá portafolios
       <app-portfolio-card
         *ngFor="let project of projects"
         [id]="project.id"
@@ -23,8 +23,13 @@
       -->
     </div>
     <div class="view-more-container">
-      <button class="view-more-btn" (click)="goToAllProjects()">Ver más</button>
+      <button class="view-more-btn" (click)="goToAllProjects(); scrollToTop()">Ver más</button>
     </div>
+    <!-- Manda a todos los portafolios
+    <div class="view-more-container">
+      <button class="view-more-btn" (click)="goToAllPortfolios()">Ver más</button>
+    </div>
+    -->
 
     <!--Esto sería variable también-->
     <h1>Conoce a los escritores <span class="cyan">más famosos</span> de la plataforma</h1>
@@ -37,10 +42,24 @@
         [photo]="writer.photo"
         [suscription]="writer.suscription"
       ></app-writer-card>
+      <!--
+      <app-illustrator-card
+        *ngFor="let writer of writers"
+        [id]="writer.id"
+        [author]="writer.author"
+        [photo]="writer.photo"
+        [suscription]="writer.suscription"
+      ></app-illustrator-card>
+      -->
     </div>
     <div class="view-more-container">
-      <button class="view-more-btn" (click)="goToAllWriters()">Ver más</button>
+      <button class="view-more-btn" (click)="goToAllWriters(); scrollToTop()">Ver más</button>
     </div>
+    <!-- Manda a todos los ilustradores
+    <div class="view-more-container">
+      <button class="view-more-btn" (click)="goToAllIllustrators()">Ver más</button>
+    </div>
+    -->
 
     <!--Esto sería variable también-->
     <h1>Echa un vistazo a sus obras <span class="cyan">más destacadas</span></h1>
@@ -55,7 +74,12 @@
       ></app-book-card>
     </div>
     <div class="view-more-container">
-      <button class="view-more-btn" (click)="goToAllBooks()">Ver más</button>
+      <button class="view-more-btn" (click)="goToAllBooks(); scrollToTop()">Ver más</button>
     </div>
+    <!-- Manda a todas las ilustraciones
+    <div class="view-more-container">
+      <button class="view-more-btn" (click)="goToAllIllustrations()">Ver más</button>
+    </div>
+    -->
   </div>
 </div>

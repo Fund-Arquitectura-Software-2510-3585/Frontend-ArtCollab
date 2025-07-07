@@ -30,4 +30,8 @@ export class WriterCardComponent {
   goToWriter() {
     this.router.navigate(['/information/writer', this.id]);
   }
+
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }

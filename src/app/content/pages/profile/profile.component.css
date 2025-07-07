@@ -39,7 +39,7 @@
 .profile-role {
   font-size: 1.2rem;
   color: white;
-  margin-top: 0.25rem;
+  margin: 0rem;
 }
 
 .important-container {
@@ -61,6 +61,29 @@
 
 @media (max-width: 800px) {
   .important-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cards-container {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr); /* Por defecto: 3 columnas */
+}
+
+@media (max-width: 1024px) {
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  .cards-container {
     grid-template-columns: 1fr;
   }
 }

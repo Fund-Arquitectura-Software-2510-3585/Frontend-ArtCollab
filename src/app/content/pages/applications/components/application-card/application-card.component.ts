@@ -18,6 +18,6 @@ export class ApplicationCardComponent {
   constructor(private router: Router) {}
 
   goToProject(): void {
-    this.router.navigate(['/projects/information', this.id]);
+    this.router.navigate(['/information/project', this.id]);
   }
 }

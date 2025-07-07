@@ -19,4 +19,8 @@ export class ProjectCardComponent {
   goToProject() {
     this.router.navigate(['/information/project', this.id]);
   }
+
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }

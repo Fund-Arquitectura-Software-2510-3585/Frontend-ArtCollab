@@ -6,6 +6,7 @@ import {PortfolioCardComponent} from './components/portfolio-card/portfolio-card
 import {WriterCardComponent} from './components/writer-card/writer-card.component';
 import {BookCardComponent} from './components/book-card/book-card.component';
 import {IllustrationProfileComponent} from '../profile/illustration-profile/illustration-profile.component';
+import {IllustratorCardComponent} from './components/illustrator-card/illustrator-card.component';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +17,7 @@ import {IllustrationProfileComponent} from '../profile/illustration-profile/illu
     WriterCardComponent,
     BookCardComponent,
     PortfolioCardComponent,
+    IllustratorCardComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
@@ -110,7 +112,6 @@ export class HomeComponent{
       description: 'Este proyecto tiene como objetivo desarrollar cuentos ilustrados que promuevan la inclusión y el respeto por las diferencias. A través de relatos protagonizados por niños y niñas de diferentes culturas, capacidades y contextos, se busca construir una visión más abierta y comprensiva del mundo. El enfoque será pedagógico y emocional, incorporando actividades complementarias para padres y educadores.'
     }
   ];
-
 
   portfolios = [
     {
@@ -251,10 +252,6 @@ export class HomeComponent{
 
   constructor(private router: Router) {}
 
-  goToProject(id: number) {
-    this.router.navigate(['/projects/information', id]);
-  }
-
   goToAllProjects() {
     this.router.navigate(['/all-projects']);
   }
@@ -265,5 +262,21 @@ export class HomeComponent{
 
   goToAllBooks() {
     this.router.navigate(['/all-books']);
+  }
+
+  goToAllPortfolios(){
+    this.router.navigate(['/all-portfolios']);
+  }
+
+  goToAllIllustrators() {
+    this.router.navigate(['/all-illustrators']);
+  }
+
+  goToAllIllustrations() {
+    this.router.navigate(['/all-illustrations']);
+  }
+
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }
