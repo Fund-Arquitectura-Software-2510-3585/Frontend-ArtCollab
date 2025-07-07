@@ -20,4 +20,8 @@ export class BookCardComponent {
   goToBook() {
     this.router.navigate(['/information/book', this.id]);
   }
+
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }
