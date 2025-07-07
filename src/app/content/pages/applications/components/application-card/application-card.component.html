@@ -1,4 +1,4 @@
-<div class="card" (click)="goToProject()">
+<div class="card" [ngClass]="{ 'rejected': state === 'Rechazado' }" (click)="goToProject()">
   <div class="image-wrapper">
     <img [src]="imageSrc" alt="Project image" />
   </div>
@@ -14,7 +14,7 @@
         </button>
         <span class="author">{{ author }}</span>
       </div>
-      <span class="status">Estado: Pendiente</span>
+      <span class="status">Estado: {{ state }}</span>
     </div>
   </div>
 </div>

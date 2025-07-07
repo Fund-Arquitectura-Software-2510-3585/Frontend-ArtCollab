@@ -87,3 +87,24 @@
     grid-template-columns: 1fr;
   }
 }
+.logout-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.logout-button {
+  background-color: #429f95; /* cyan */
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #317d74; /* un tono más oscuro al pasar */
+}

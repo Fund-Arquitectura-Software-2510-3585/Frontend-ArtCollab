@@ -116,3 +116,12 @@
     }
   }
 }
+.card.rejected {
+  background-color: #8B0000;
+
+  cursor: auto;
+
+  &:hover {
+    transform: none;
+  }
+}
