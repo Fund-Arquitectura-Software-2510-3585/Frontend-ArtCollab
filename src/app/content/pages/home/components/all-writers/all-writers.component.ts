@@ -8,7 +8,6 @@ import {WriterCardComponent} from '../writer-card/writer-card.component';
   selector: 'app-all-writers',
   imports: [
     NgForOf,
-    ProjectCardComponent,
     ReactiveFormsModule,
     FormsModule,
     WriterCardComponent

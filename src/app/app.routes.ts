@@ -1,7 +1,5 @@
 import { Routes } from '@angular/router';
 import {HomeComponent} from './content/pages/home/home.component';
-import {LoginComponent} from './content/pages/login/login.component';
-import {RegisterComponent} from './content/pages/register/register.component';
 import {ChatsComponent} from './content/pages/chats/chats.component';
 import {ApplicationsComponent} from './content/pages/applications/applications.component';
 import {CreateProjectComponent} from './content/pages/create-project/create-project.component';
@@ -30,12 +28,15 @@ import {AllPortfoliosComponent} from './content/pages/home/components/all-portfo
 import {
   IllustrationIndividualComponent
 } from './content/pages/home/components/illustration-individual/illustration-individual.component';
+import {SignInComponent} from './content/pages/login/pages/sign-in/sign-in.component';
+import {SignUpComponent} from './content/pages/login/pages/sign-up/sign-up.component';
+import {authenticationGuard} from './content/pages/login/services/authentication.guard';
 
 export const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'home', component: HomeComponent,  canActivate: [authenticationGuard] },
+  { path: 'login', component: SignInComponent },
   { path: 'profile', component: ProfileComponent},
-  { path: 'register', component: RegisterComponent },
+  { path: 'register', component: SignUpComponent },
   { path: 'messages', component: ChatsComponent },
   { path: 'projects/create-new-project', component: CreateProjectComponent },
   { path: 'information/project/:id', component: ProjectIndividualComponent },
@@ -55,6 +56,6 @@ export const routes: Routes = [
   { path: 'all-illustrations', component: AllIllustrationsComponent},
   { path: 'all-portfolios', component: AllPortfoliosComponent},
   { path: 'portfolios/information/:id/create-new-illustration', component: CreateIlustrationComponent },
-  { path: '', pathMatch: 'full', redirectTo: 'home' },
-  { path: '**', pathMatch: 'full', redirectTo: 'home' }
+  { path: '', pathMatch: 'full', redirectTo: 'login' },
+  { path: '**', pathMatch: 'full', redirectTo: 'login' }
 ];

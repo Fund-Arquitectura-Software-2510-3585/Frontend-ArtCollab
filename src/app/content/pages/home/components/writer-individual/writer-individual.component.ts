@@ -9,9 +9,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 @Component({
   selector: 'app-writer-individual',
   imports: [
-    IllustrationProfileComponent,
     NgForOf,
-    PortfolioProfileComponent,
     BookProfileComponent,
     ProjectProfileComponent
   ],

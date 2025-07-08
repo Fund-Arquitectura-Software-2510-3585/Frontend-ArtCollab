@@ -14,8 +14,6 @@ import {Router} from '@angular/router';
     IllustrationProfileComponent,
     NgForOf,
     PortfolioProfileComponent,
-    BookProfileComponent,
-    ProjectProfileComponent
   ],
   templateUrl: './profile.component.html',
   standalone: true,

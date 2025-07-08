@@ -9,9 +9,7 @@ import {PortfolioProfileComponent} from '../../../profile/portfolio-profile/port
 @Component({
   selector: 'app-illustrator-individual',
   imports: [
-    BookProfileComponent,
     NgForOf,
-    ProjectProfileComponent,
     IllustrationProfileComponent,
     PortfolioProfileComponent
   ],

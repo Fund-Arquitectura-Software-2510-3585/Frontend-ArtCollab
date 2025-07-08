@@ -7,9 +7,7 @@ import {ActivatedRoute, RouterLink} from '@angular/router';
 @Component({
   selector: 'app-project-individual',
   imports: [
-    NgForOf,
     ReactiveFormsModule,
-    WriterCardComponent,
     RouterLink
   ],
   templateUrl: './project-individual.component.html',

@@ -8,7 +8,6 @@ import {BookCardComponent} from '../book-card/book-card.component';
   selector: 'app-all-books',
   imports: [
     NgForOf,
-    ProjectCardComponent,
     ReactiveFormsModule,
     BookCardComponent,
     FormsModule

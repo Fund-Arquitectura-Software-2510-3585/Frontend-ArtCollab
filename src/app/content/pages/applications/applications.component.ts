@@ -12,8 +12,6 @@ import {
   imports: [
     NgForOf,
     ApplicationCardComponent,
-    NgIf,
-    ApplicationCardReceivedComponent
   ],
   templateUrl: './applications.component.html',
   styleUrl: './applications.component.css'

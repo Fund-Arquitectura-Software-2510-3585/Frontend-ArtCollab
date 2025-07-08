@@ -16,8 +16,6 @@ import {IllustratorCardComponent} from './components/illustrator-card/illustrato
     NgForOf,
     WriterCardComponent,
     BookCardComponent,
-    PortfolioCardComponent,
-    IllustratorCardComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
