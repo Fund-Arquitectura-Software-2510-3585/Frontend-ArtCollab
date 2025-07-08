@@ -1,59 +1,108 @@
 <form [formGroup]="form">
   <div class="login-page">
     <div class="logo-container">
-      <img
-        src="https://raw.githubusercontent.com/diegooo01/HidraNet/refs/heads/main/public/brand-logo/art-collab-logo.png"
-        alt="ArtCollab Logo"
-        class="logo"
-      />
+      <img src="https://raw.githubusercontent.com/diegooo01/HidraNet/refs/heads/main/public/brand-logo/art-collab-logo.png" alt="ArtCollab Logo" class="logo" />
     </div>
 
     <div class="login-box">
       <h2>Registrarse</h2>
 
-      <div class="role-selector">
-        <p>¿Escritor o Ilustrador?</p>
-        <div class="roles">
-          <label>
-            <input type="radio" formControlName="role" value="ESCRITOR" />
-            <span>Escritor</span>
-          </label>
-          <label>
-            <input type="radio" formControlName="role" value="ILUSTRADOR" />
-            <span>Ilustrador</span>
-          </label>
+      <!-- Paso 1 -->
+      <div *ngIf="step === 1">
+        <div class="role-selector">
+          <p>¿Escritor o Ilustrador?</p>
+          <div class="roles">
+            <label>
+              <input type="radio" formControlName="role" value="ESCRITOR" />
+              <span>Escritor</span>
+            </label>
+            <label>
+              <input type="radio" formControlName="role" value="ILUSTRADOR" />
+              <span>Ilustrador</span>
+            </label>
+          </div>
         </div>
+
+        <div class="form-group">
+          <input type="text" placeholder="Nombre*" formControlName="firstName" required />
+        </div>
+
+        <div class="form-group">
+          <input type="text" placeholder="Apellido*" formControlName="lastName" required />
+        </div>
+
+        <div class="form-group">
+          <input type="text" placeholder="Correo electrónico*" formControlName="username" required />
+        </div>
+
+        <div class="form-group">
+          <input [type]="showPassword ? 'text' : 'password'" placeholder="Contraseña*" formControlName="password" />
+          <span class="material-symbols-outlined icon" (click)="togglePasswordVisibility()">
+            {{ showPassword ? 'visibility_off' : 'visibility' }}
+          </span>
+        </div>
+
+        <div class="redirect-link">
+          ¿Ya tienes una cuenta? <a routerLink="/login">Inicia sesión</a>
+        </div>
+
+        <button class="login-button" type="button" (click)="goToNextStep()">Siguiente</button>
       </div>
 
-      <div class="form-group">
-        <input type="text" placeholder="Nombre*" formControlName="firstName" required />
-      </div>
+      <!-- Paso 2 -->
+      <div *ngIf="step === 2">
+        <div *ngIf="form.value.role === 'ESCRITOR'" [formGroup]="formEscritor">
+          <h3>Datos de Escritor</h3>
 
-      <div class="form-group">
-        <input type="text" placeholder="Apellido*" formControlName="lastName" required />
-      </div>
+          <div class="form-group">
+          <input type="text" placeholder="Biografía*" formControlName="biografia" />
+          </div>
 
-      <div class="form-group">
-        <input type="username" placeholder="Correo electrónico*" formControlName="username" required />
-        <span class="material-symbols-outlined icon">mail</span>
-      </div>
+          <div class="form-group">
+          <input type="text" placeholder="Foto URL*" formControlName="foto" />
+          </div>
 
-      <div class="form-group">
-        <input
-          [type]="showPassword ? 'text' : 'password'"
-          placeholder="Contraseña*"
-          formControlName="password"
-        />
-        <span class="material-symbols-outlined icon" (click)="togglePasswordVisibility()">
-          {{ showPassword ? 'visibility_off' : 'visibility' }}
-        </span>
-      </div>
+          <div class="form-group">
+          <input type="text" placeholder="Redes sociales*" formControlName="redes" />
+          </div>
 
-      <div class="redirect-link">
-        ¿Ya tienes una cuenta? <a routerLink="/login">Inicia sesión</a>
-      </div>
+          <div class="form-group">
+          <input type="number" placeholder="Suscripción*" formControlName="suscripcion" />
+          </div>
+        </div>
 
-      <button class="login-button" (click)="onSubmit()">Registrar</button>
+        <div *ngIf="form.value.role === 'ILUSTRADOR'" [formGroup]="formIlustrador">
+          <h3>Datos de Ilustrador</h3>
+
+          <div class="form-group">
+          <input type="text" placeholder="Biografía*" formControlName="biografia" />
+          </div>
+
+          <div class="form-group">
+          <input type="text" placeholder="Foto URL*" formControlName="foto" />
+          </div>
+
+          <div class="form-group">
+          <input type="text" placeholder="Redes sociales*" formControlName="redes" />
+          </div>
+
+          <div class="suscripcion-selector">
+            <p>¿Deseas obtener una suscribipción?</p>
+            <div class="roles">
+              <label>
+                <input type="radio" formControlName="suscripcion" [value]="1" />
+                <span>Sí</span>
+              </label>
+              <label>
+                <input type="radio" formControlName="suscripcion" [value]="0" />
+                <span>No</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <button class="login-button" type="button" (click)="onSubmitFinal()">Finalizar Registro</button>
+      </div>
     </div>
   </div>
 </form>
