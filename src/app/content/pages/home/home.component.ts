@@ -7,6 +7,7 @@ import {WriterCardComponent} from './components/writer-card/writer-card.componen
 import {BookCardComponent} from './components/book-card/book-card.component';
 import {IllustrationProfileComponent} from '../profile/illustration-profile/illustration-profile.component';
 import {IllustratorCardComponent} from './components/illustrator-card/illustrator-card.component';
+import {AuthenticationService} from '../login/services/authentication.service';
 
 @Component({
   selector: 'app-home',
@@ -20,12 +21,11 @@ import {IllustratorCardComponent} from './components/illustrator-card/illustrato
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent{
+export class HomeComponent implements OnInit {
 
-  user = {
-    name: 'Andres Valle',
-    role: ''
-  };
+  name: string = '';
+  role: string = '';
+
 
   projects = [
     {
@@ -248,7 +248,7 @@ export class HomeComponent{
     },
   ];
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authenticationService: AuthenticationService) {}
 
   goToAllProjects() {
     this.router.navigate(['/all-projects']);
@@ -276,5 +276,11 @@ export class HomeComponent{
 
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  ngOnInit() {
+    this.authenticationService.currentUsername.subscribe(username => {
+      this.name = username;
+    });
   }
 }

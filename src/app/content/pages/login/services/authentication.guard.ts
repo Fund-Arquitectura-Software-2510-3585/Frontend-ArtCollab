@@ -10,6 +10,7 @@ export const authenticationGuard: CanActivateFn = () => {
     take(1), map(isSignedIn => {
       if (isSignedIn) return true;
       router.navigate(['/sign-in']).then();
+      window.alert('¡Redirigido! No puedes acceder sin iniciar sesión');
       return false;
     }));
 };

@@ -5,6 +5,7 @@ import {AuthenticationService} from './content/pages/login/services/authenticati
 import {filter} from 'rxjs';
 import {HttpClientModule} from '@angular/common/http';
 import {NgIf} from '@angular/common';
+import {OptionsService} from './public/services/options.service';
 
 @Component({
   selector: 'app-root',
@@ -22,12 +23,31 @@ export class AppComponent {
   showNavbar = true;
   private hideNavbarRoutes = ['/login', '/register'];
 
-  constructor(private router: Router, private authenticationService: AuthenticationService) {
+  constructor(private router: Router, private authenticationService: AuthenticationService,
+              private optionsService: OptionsService) {
     this.router.events
       .pipe(filter(event => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
         this.showNavbar = !this.hideNavbarRoutes.includes(event.urlAfterRedirects);
       });
+  }
+
+  ngOnInit() {
+    this.optionsService.updateOptions$.subscribe(() => {
+      //this.updateOptions();
+    });
+
+    this.authenticationService.isSignedIn.subscribe(isSignedIn => {
+      this.isSignedIn = isSignedIn;
+    });
+  }
+
+  getName(){
+    this.authenticationService.currentUsername.subscribe(username => this.username = username);
+    console.log(this.username);
+  }
+  getId(){
+    this.authenticationService.currentUserId.subscribe(id => this.userId = id);
   }
 }
 
